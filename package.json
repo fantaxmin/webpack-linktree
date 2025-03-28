@@ -1,0 +1,20 @@
+{
+  "name": "webpack-linktree",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@types/bun": "latest",
+    "copy-webpack-plugin": "^13.0.0",
+    "html-webpack-plugin": "^5.6.3",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "ts-loader": "^9.5.2"
+  }
+}
