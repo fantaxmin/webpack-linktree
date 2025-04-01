@@ -1,9 +1,14 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import { dirname } from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { fileURLToPath } from 'url';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default {
     entry : './src/index.ts',
-    ouput : {
+    output : {
         path : path.resolve(__dirname, 'dist'),
         filename : 'main.js'
     },
