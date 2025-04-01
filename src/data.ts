@@ -1,3 +1,4 @@
+const date = new Date();
 const data = {
     name: "Nicolás Torres López",
     nickname: "D-Ghoost",
@@ -24,7 +25,7 @@ const data = {
             emonji: "📄"
         }
     ],
-    footer: "Made on Colombia"
+    footer: "© "+ date.getFullYear() +" Nicolás Torres López • Developer"
 }
 
 export default data;
