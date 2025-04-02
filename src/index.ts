@@ -60,10 +60,8 @@ function downloadResume(lang : string) : void {
                ? '/docs/CV_NicolasTorresL_ES.pdf'
                : '/docs/CV_NicolasTorresL_EN.pdf';
     
-    const a = document.createElement('a');
-    a.setAttribute('href', url);
-    a.setAttribute('download', `CV_NicolasTorresL_${lang}.pdf`);
-    a.click();
+    // Abrir el PDF en una nueva pestaña
+    window.open(url, '_blank');
     
     $dialog?.close();
 }
