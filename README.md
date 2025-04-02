@@ -1,5 +1,4 @@
 # Link tree for Nicolás Torres López
-
 Es un proyecto de un árbol de enlaces, donde se pueden encontrar mis redes sociales y otros enlaces de interés.
 ## Tecnologías utilizadas
 - HTML
@@ -9,3 +8,6 @@ Es un proyecto de un árbol de enlaces, donde se pueden encontrar mis redes soci
 - Webpack
 - Bun
 - Git
+- GitHub Pages
+
+Espero que te haya gustado el proyecto.
