@@ -21,7 +21,6 @@ const data = {
         {
             id: "resume",
             name: "Download Resume",
-            url: "#",
             emonji: "📄"
         }
     ],

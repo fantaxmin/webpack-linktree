@@ -12,7 +12,9 @@ const main = () => {
     $img?.setAttribute('src', data?.imageProfile);
     // Cards links
     let links = data?.links?.map(( link ) => {
-        return `<a href="${link.url}" class="link ${ link.id }">${ link.name }<span>${ link.emonji ?? '' }</span></a>`;
+        return link.id !== "resume" 
+               ? `<a href="${link.url}" class="link ${ link.id }" target="_blank">${ link.name }<span>${ link.emonji ?? '' }</span></a>`
+               : `<button class="link ${ link.id }">${ link.name }<span>${ link.emonji ?? '' }</span></button>`;
     }).join('');
     // footer content
     let $pFooter = document.createElement('p');
@@ -30,3 +32,38 @@ const main = () => {
     }
 }
 main();
+
+const $buttonResume : HTMLElement | null = document.querySelector('.link.resume');
+const $dialog : HTMLDialogElement | null = document.querySelector('dialog');
+
+if ($buttonResume) {
+    // Open dialog
+    $buttonResume.addEventListener('click', () => {
+        $dialog?.showModal();
+    });
+    // Close dialog
+    const $closeDialog : HTMLElement | null = document.querySelector('.close-dialog');
+    $closeDialog?.addEventListener('click', () =>{
+        $dialog?.close();
+    });
+
+    // Resume download buttons
+    const $resumeES : HTMLElement | null = document.querySelector('.resume-lang__es');
+    const $resumeEN : HTMLElement | null = document.querySelector('.resume-lang__en');
+    
+    $resumeES?.addEventListener('click', () => downloadResume('ES'));
+    $resumeEN?.addEventListener('click', () => downloadResume('EN'));
+}
+
+function downloadResume(lang : string) : void {
+    const url = lang === 'ES'
+               ? '/docs/CV_NicolasTorresL_ES.pdf'
+               : '/docs/CV_NicolasTorresL_EN.pdf';
+    
+    const a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.setAttribute('download', `CV_NicolasTorresL_${lang}.pdf`);
+    a.click();
+    
+    $dialog?.close();
+}
