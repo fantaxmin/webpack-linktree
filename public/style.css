@@ -2,12 +2,18 @@
  :root {
     --primary: #3a86ff;
     --secondary: #8338ec;
-    --background: #f8f9fa;
-    --text: #212529;
+    --bg-light: #f8f9fa;
+    --bg-dark: #343a40;
+    --title-light: #212529;
+    --title-dark: #f8f9fa;
+    --text-dark: #212529;
+    --text-white: #f8f9fa;
     --card: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.1);
     --text-secondary: #666;
     --text-tertiary: #888;
+    --accent-light: #3a86ff;
+    --accent-dark: #8338ec;
+    --shadow: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -18,8 +24,8 @@
 
 /* Base Styles */
 body {
-    background-color: var(--background);
-    color: var(--text);
+    background-color: var(--bg-light);
+    color: var(--text-white);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     min-height: 100vh;
@@ -37,6 +43,14 @@ body {
     align-items: center;
     padding: 20px;
 }
+
+body.light {
+    --accent: var(--accent-light);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+
 
 /* Header Styles */
 header {
@@ -73,7 +87,7 @@ header {
 
 .title {
     font-size: 1.1rem;
-    color: #555;
+    color: var(--title-light);
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
 }
@@ -103,7 +117,7 @@ nav.links {
     display: block;
     padding: 16px 20px;
     background-color: var(--card);
-    color: var(--text);
+    color: var(--text-dark);
     text-decoration: none;
     border-radius: 12px;
     font-weight: 600;
@@ -167,6 +181,8 @@ nav.links {
     background: #f8f9fa;
     border: 2px solid #eaeaea;
 }
+
+
 
 /* Footer Styles */
 footer {
@@ -251,6 +267,87 @@ dialog button img {
     border-radius: 6px;
     display: block;
 }
+
+
+/* Darkmode */
+body.dark {
+    --accent: var(--accent-dark);
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    --card: #23272b;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --text-secondary: #ccc;
+    --text-tertiary: #aaa;
+}
+
+.darkmode__button {
+    
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--accent);
+    overflow: hidden;
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: transform 0.5s ease-in;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: absolute;
+    z-index: 1;
+}
+
+.darkmode__button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: var(--accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease-in, height 0.5s ease-in, background-color 0.5s ease-in-out;
+    z-index: 0;
+}
+
+.darkmode__button-icon {
+    position: relative;
+    z-index: 2;
+}
+
+.darkmode__button.animate::before {
+    width: 200%;
+    height: 200%;
+}
+
+.darkmode__button:hover {
+    transform: scale(1.1);
+}
+
+
+.darkmode__button.animate::before {
+    width: 200%;
+    height: 200%;
+}
+
+body.dark .title{
+    color: var(--text-white);
+}
+
+/* Darkmode Link contact */
+body.dark .link.resume{
+    color: var(--text-dark);
+}
+
+body.dark .link.contact {
+    background-color: var(--card);
+    border: 2px solid var(--text-secondary);
+    color: var(--text-dark);
+}
+
+
 
 /* Responsive Styles */
 @media (max-width: 480px) {

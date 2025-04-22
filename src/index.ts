@@ -71,3 +71,28 @@ function downloadResume(lang : string) : void {
     
     $dialog?.close();
 }
+
+const $darkmodeButton : HTMLElement | null = document.querySelector('.darkmode__button');
+const $darkmodeIcon : HTMLElement | null = document.querySelector('.darkmode__button-icon');
+
+function changeTheme( theme : 'light' | 'dark' ) : void {
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme);
+    if ($darkmodeIcon) {
+        $darkmodeIcon.textContent = theme === 'light' ? '🌞' : '🌙';
+    }
+    localStorage.setItem('theme', theme);
+}
+
+const saveTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+changeTheme(saveTheme ?? 'light');
+
+$darkmodeButton?.addEventListener('click', () => {
+    
+    $darkmodeButton?.classList.add('animate');
+    setTimeout(()=> $darkmodeButton.classList.remove('animate'), 550);
+    const theme = document.body.classList.contains('light') ? 'dark' : 'light';
+    changeTheme(theme);
+});
+
+
