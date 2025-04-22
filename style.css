@@ -216,7 +216,7 @@ dialog h2 {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     text-align: center;
-    color: #555;
+    color: var(--text-dark);
 }
 
 dialog button.close-dialog {
@@ -345,6 +345,13 @@ body.dark .link.contact {
     background-color: var(--card);
     border: 2px solid var(--text-secondary);
     color: var(--text-dark);
+}
+
+body.dark dialog h2{
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 
