@@ -9,7 +9,7 @@ const data = {
         {
             id: "github",
             name: "GitHub Profile",
-            url: "https://github.com/D-Ghoost",
+            url: "https://github.com/fantaxmin",
             username: "D-Ghoost"
         },
         {
